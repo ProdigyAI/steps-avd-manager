@@ -279,6 +279,7 @@ func main() {
 			fmt.Println()
 			log.Infof("Create AVD")
 
+			log.Infof(configs.CustomConfig)
 			customProperties, err := avdconfig.NewProperties(strings.Split(configs.CustomConfig, "\n"))
 			if err != nil {
 				failf("Failed to parse custom properties, error: %s", err)
