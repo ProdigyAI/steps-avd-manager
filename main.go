@@ -375,6 +375,7 @@ func main() {
 
 		osCommand := cmd.GetCmd()
 
+		log.Infof(osCommand)
 		if configs.Verbose == "true" {
 			osCommand.Stderr = os.Stderr
 			osCommand.Stdout = os.Stdout
