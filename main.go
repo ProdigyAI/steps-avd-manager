@@ -372,7 +372,8 @@ func main() {
 		cmdSlice = append(cmdSlice, customFlags...)
 
 		log.Infof(filepath.Join(configs.AndroidHome, "emulator/emulator"))
-		log.Infof(cmdSlice)
+		log.Infof(fmt.Printf("%v", cmdSlice))
+
 		cmd := command.New(filepath.Join(configs.AndroidHome, "emulator/emulator"), cmdSlice...)
 
 		osCommand := cmd.GetCmd()
