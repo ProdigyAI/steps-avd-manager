@@ -371,11 +371,12 @@ func main() {
 
 		cmdSlice = append(cmdSlice, customFlags...)
 
+		log.Infof(filepath.Join(configs.AndroidHome, "emulator/emulator"))
+		log.Infof(cmdSlice...)
 		cmd := command.New(filepath.Join(configs.AndroidHome, "emulator/emulator"), cmdSlice...)
 
 		osCommand := cmd.GetCmd()
 
-		log.Infof(cmd)
 		if configs.Verbose == "true" {
 			osCommand.Stderr = os.Stderr
 			osCommand.Stdout = os.Stdout
@@ -408,7 +409,7 @@ func main() {
 				break
 			}
 
-			bootWaitTime := time.Duration(300)
+			bootWaitTime := time.Duration(60)
 
 			if time.Now().After(deviceDetectionStarted.Add(bootWaitTime * time.Second)) {
 				failf("Failed to boot emulator device within %d seconds.", bootWaitTime)

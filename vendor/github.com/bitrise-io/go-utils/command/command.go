@@ -60,6 +60,11 @@ func (m *Model) GetCmd() *exec.Cmd {
 	return m.cmd
 }
 
+// GetCmd ...
+func (m *Model) GetCmdString() string {
+	return m.cmd
+}
+
 // SetDir ...
 func (m *Model) SetDir(dir string) *Model {
 	m.cmd.Dir = dir
