@@ -294,6 +294,8 @@ func main() {
 				"-c", customProperties.Get("sdcard.size", "128M"),
 				"-k", fmt.Sprintf("system-images;android-%s;%s;%s", configs.Version, configs.Tag, configs.Abi))
 
+			log.Infof(configs.CustomConfig)
+
 			if out, err := cmd.RunAndReturnTrimmedCombinedOutput(); err != nil {
 				failf("Failed to create avd, error: %s output: %s", err, out)
 			}
