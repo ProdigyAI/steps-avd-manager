@@ -10,6 +10,7 @@ import (
 	"strings"
 	"time"
 	"io/ioutil"
+    "path/filepath"
 
 	"github.com/bitrise-steplib/steps-avd-manager/avdconfig"
 	"github.com/bitrise-tools/go-steputils/input"
@@ -364,6 +365,22 @@ func main() {
 
 	// run emulator
 	{
+
+
+
+		root := "/root/.android/avd/Nexus_5X_API_27.avd/"
+		err := filepath.Walk(root, func(path string, info os.FileInfo, err error) error {
+			files = append(files, path)
+			return nil
+		})
+		if err != nil {
+			log.Errorf("Error read path: %s", err)
+		}
+		for _, file := range files {
+			log.Infof(file)
+		}
+
+
 		log.Infof("Copy ramfile")
         input, err := ioutil.ReadFile("/opt/android-sdk-linux/system-images/android-26/google_apis_playstore/x86/ramdisk.img")
         if err != nil {
