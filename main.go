@@ -10,7 +10,6 @@ import (
 	"strings"
 	"time"
 	"io/ioutil"
-    "path/filepath"
 
 	"github.com/bitrise-steplib/steps-avd-manager/avdconfig"
 	"github.com/bitrise-tools/go-steputils/input"
