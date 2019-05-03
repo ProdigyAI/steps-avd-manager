@@ -1,0 +1,3 @@
+emulator: ERROR: Running multiple emulators with the same AVD is an experimental feature.
+Please use -read-only flag to enable this feature.
+

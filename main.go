@@ -370,7 +370,7 @@ func main() {
 		os.MkdirAll("/root/.android/avd/Nexus_5X_API_27.avd/snapshots/default_boot", os.ModePerm)
 
 		var files []string
-		root := "/root/.android/avd/Nexus_5X_API_27.avd/"
+		root := "~/android/emulator/lib64/qt/lib"
 		err := filepath.Walk(root, func(path string, info os.FileInfo, err error) error {
 			files = append(files, path)
 			return nil
@@ -381,21 +381,6 @@ func main() {
 		for _, file := range files {
 			log.Infof(file)
 		}
-
-
-		files = []
-		root = "~/android/emulator/lib64/qt/lib"
-		err = filepath.Walk(root, func(path string, info os.FileInfo, err error) error {
-			files = append(files, path)
-			return nil
-		})
-		if err != nil {
-			log.Errorf("Error read path: %s", err)
-		}
-		for _, file := range files {
-			log.Infof(file)
-		}
-
 
 		log.Infof("Copy ramfile")
         input, err := ioutil.ReadFile("/opt/android-sdk-linux/system-images/android-26/google_apis_playstore/x86/ramdisk.img")
