@@ -364,6 +364,11 @@ func main() {
 
 	// run emulator
 	{
+
+
+		os.MkdirAll("/root/.android/avd/Nexus_5X_API_27.avd/snapshots", os.ModePerm)
+		os.MkdirAll("/root/.android/avd/Nexus_5X_API_27.avd/snapshots/default_boot", os.ModePerm)
+
 		var files []string
 		root := "/root/.android/avd/Nexus_5X_API_27.avd/"
 		err := filepath.Walk(root, func(path string, info os.FileInfo, err error) error {
