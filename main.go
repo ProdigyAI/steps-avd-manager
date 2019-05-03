@@ -363,8 +363,21 @@ func main() {
 
 	// run emulator
 	{
-		log.Infof("Start emulator")
+		log.Infof("Copy ramfile")
+        input, err := ioutil.ReadFile("/opt/android-sdk-linux/system-images/android-26/google_apis_playstore/x86/ramdisk.img")
+        if err != nil {
+                fmt.Println(err)
+                return
+        }
 
+        err = ioutil.WriteFile("root/.android/avd/Nexus_5X_API_27.avd/snapshots/default_boot/ram.img", input, 0644)
+        if err != nil {
+                fmt.Println("Error creating", "root/.android/avd/Nexus_5X_API_27.avd/snapshots/default_boot/ram.img")
+                fmt.Println(err)
+                return
+        }
+
+		log.Infof("Start emulator")
 		customFlags, err := shellquote.Split(configs.CustomCommandFlags)
 		if err != nil {
 			log.Errorf("Failed to parse commands, error: %s", err)
