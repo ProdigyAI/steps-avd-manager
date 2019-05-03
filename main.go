@@ -9,6 +9,7 @@ import (
 	"strconv"
 	"strings"
 	"time"
+	"io/ioutil"
 
 	"github.com/bitrise-steplib/steps-avd-manager/avdconfig"
 	"github.com/bitrise-tools/go-steputils/input"
