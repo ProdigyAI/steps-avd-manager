@@ -383,7 +383,7 @@ func main() {
 		}
 
 		log.Infof("Copy ramfile")
-        input, err := ioutil.ReadFile("/opt/android-sdk-linux/system-images/android-26/google_apis_playstore/x86_64/ramdisk.img")
+        input, err := ioutil.ReadFile("/opt/android-sdk-linux/system-images/android-28/google_apis_playstore/x86_64/ramdisk.img")
         if err != nil {
 				log.Errorf("Error reading ram file: %s", err)
                 return
