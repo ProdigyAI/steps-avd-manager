@@ -229,7 +229,7 @@ func main() {
 		}
 
 		// getting emulator from different channel
-		out, err = command.New(filepath.Join(configs.AndroidHome, "tools/bin/sdkmanager"), "emulator", "--channel=3").RunAndReturnTrimmedCombinedOutput()
+		out, err = command.New(filepath.Join(configs.AndroidHome, "tools/bin/sdkmanager"), "emulator", "--channel=0").RunAndReturnTrimmedCombinedOutput()
 		if err != nil {
 			failf("Failed to update emulator sdk package, error: %s, output: %s", err, out)
 		}

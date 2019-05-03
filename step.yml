@@ -200,7 +200,7 @@ inputs:
       value_options:
       - "true"
       - "false"
-  - custom_command_flags: "-no-window -no-audio -debug-init"
+  - custom_command_flags: "-no-audio -debug-init"
     opts:
       category: Customize
       title: "Start AVD command flags"
@@ -208,7 +208,7 @@ inputs:
       description: Flags used when running the command to start the emulator.
       is_expand: true
       is_required: false
-  - emulator_abi: "x86"
+  - emulator_abi: "x86_64"
     opts:
       category: Customize
       title: "Emulator ABI"

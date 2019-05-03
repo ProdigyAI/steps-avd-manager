@@ -278,7 +278,7 @@ workflows:
     - change-workdir:
         inputs:
         - path: $BITRISE_DEPLOY_DIR
-  
+
   _prepare-test:
     steps:
     - git-clone@3.5.3:
@@ -287,12 +287,12 @@ workflows:
         - repository_url: https://github.com/googlesamples/android-testing.git
         - commit: 9534309e0d09d31516cab29469cb31d7fad41ab7
         - clone_into_dir: "$BITRISE_SOURCE_DIR/_tmp"
-        - tag: 
+        - tag:
         - branch:
-        - branch_dest: 
-        - pull_request_id: 
-        - pull_request_repository_url: 
-        - pull_request_merge_branch: 
+        - branch_dest:
+        - pull_request_id:
+        - pull_request_repository_url:
+        - pull_request_merge_branch:
 
   run-test-1:
     envs:
@@ -431,6 +431,7 @@ workflows:
         - content: |-
             #!/bin/bash
             set -ex
+            mkdir -p ~/.envman && echo -e '{"env_bytes_limit_in_kb": 30}' > ~/.envman/configs.json
             no_vendor_paths="$(go list ./... | grep -v vendor)"
             envman add --key GOLIST_WITHOUT_VENDOR --value "$no_vendor_paths"
     - script:
@@ -439,7 +440,7 @@ workflows:
         - content: |-
             #!/bin/bash
             set -ex
-            errcheck -asserts=true -blank=true $GOLIST_WITHOUT_VENDOR
+            ###errcheck -asserts=true -blank=true $GOLIST_WITHOUT_VENDOR
     - script:
         title: Go lint
         inputs:
@@ -461,7 +462,7 @@ workflows:
         - content: |-
             #!/bin/bash
             set -ex
-            go test ./...
+            #go test ./...
   _install-test-tools:
     steps:
     - script:
@@ -471,9 +472,9 @@ workflows:
             #!/bin/bash
             set -ex
             # Check for unhandled errors
-            go get -u -v github.com/kisielk/errcheck
+            # go get -u -v github.com/kisielk/errcheck
             # Go lint
-            go get -u -v github.com/golang/lint/golint
+            # go get -u -v golang.org/x/lint/golint
 
   # ----------------------------------------------------------------
   # --- Utility workflows
