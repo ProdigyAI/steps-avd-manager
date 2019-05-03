@@ -383,6 +383,22 @@ func main() {
 		}
 
 
+
+
+		var filesBIS []string
+		rootBIS := "/root/android/emulator/lib64/qt/lib"
+		err := filepath.Walk(rootBIS, func(path string, info os.FileInfo, err error) error {
+			filesBIS = append(filesBIS, path)
+			return nil
+		})
+		if err != nil {
+			log.Errorf("Error read path: %s", err)
+		}
+		for _, file := range filesBIS {
+			log.Infof(file)
+		}
+
+
 		log.Infof("Copy ramfile")
         input, err := ioutil.ReadFile("/opt/android-sdk-linux/system-images/android-26/google_apis_playstore/x86/ramdisk.img")
         if err != nil {
