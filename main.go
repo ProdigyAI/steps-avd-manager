@@ -371,9 +371,9 @@ func main() {
                 return
         }
 
-        err = ioutil.WriteFile("root/.android/avd/Nexus_5X_API_27.avd/snapshots/default_boot/ram.img", input, 0644)
+        err = ioutil.WriteFile("/root/.android/avd/Nexus_5X_API_27.avd/snapshots/default_boot/ram.img", input, 0644)
         if err != nil {
-                fmt.Println("Error creating", "root/.android/avd/Nexus_5X_API_27.avd/snapshots/default_boot/ram.img")
+                fmt.Println("Error creating", "/root/.android/avd/Nexus_5X_API_27.avd/snapshots/default_boot/ram.img")
                 fmt.Println(err)
                 return
         }
