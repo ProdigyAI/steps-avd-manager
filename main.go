@@ -367,14 +367,13 @@ func main() {
 		log.Infof("Copy ramfile")
         input, err := ioutil.ReadFile("/opt/android-sdk-linux/system-images/android-26/google_apis_playstore/x86/ramdisk.img")
         if err != nil {
-                fmt.Println(err)
+				log.Errorf("Error reading ram file: %s", err)
                 return
         }
 
         err = ioutil.WriteFile("/root/.android/avd/Nexus_5X_API_27.avd/snapshots/default_boot/ram.img", input, 0644)
         if err != nil {
-                fmt.Println("Error creating", "/root/.android/avd/Nexus_5X_API_27.avd/snapshots/default_boot/ram.img")
-                fmt.Println(err)
+				log.Errorf("Error creating ram file: %s", err)
                 return
         }
 
