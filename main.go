@@ -370,7 +370,7 @@ func main() {
 		os.MkdirAll("/root/.android/avd/Nexus_5X_API_27.avd/snapshots/default_boot", os.ModePerm)
 
 		var files []string
-		root := "/opt/android-sdk-linux/emulator/lib64/"
+		root := "/opt/android-sdk-linux/system-images/"
 		err := filepath.Walk(root, func(path string, info os.FileInfo, err error) error {
 			files = append(files, path)
 			return nil
